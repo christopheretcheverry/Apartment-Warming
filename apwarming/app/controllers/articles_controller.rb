@@ -40,8 +40,13 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @article = Article.new(params[:article])
-
+    file = params[:mp3file]
+    #@article = Article.new(params[:article])
+    @article = Article.create(params[:article])
+    name = @article.id.to_s + '_' + file.original_filename
+    @article.awskey = name
+    AWS::S3::S3Object.store(name, file.read, BUCKET, :access => :public_read)
+    
     respond_to do |format|
       if @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
@@ -80,4 +85,9 @@ class ArticlesController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  def download_url_for(song_key)  
+      AWS::S3::S3Object.url_for(song_key, BUCKET, :authenticated => false)  
+  end
+  
 end
