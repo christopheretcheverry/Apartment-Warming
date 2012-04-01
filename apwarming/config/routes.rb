@@ -1,5 +1,7 @@
 Apwarming::Application.routes.draw do
   resources :articles
+  match 'articles/download/awskey' => 'articles#download'
+
   root :to => 'articles#index'
 
   # The priority is based upon order of creation:

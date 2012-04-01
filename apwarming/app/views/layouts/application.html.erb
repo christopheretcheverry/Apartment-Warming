@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Audio Articles</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+	<head>
+		<title>Audio Articles</title>
+		<%= stylesheet_link_tag    "application" %>
+	    <%= javascript_include_tag "application" %>
+	    <%= csrf_meta_tags %>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width; initial-scale=1.5; user-scalable=no;">
 
-<%= yield %>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+		<%= stylesheet_link_tag "main", "not.the.skin", "circle.playercss" %>
+		<%= javascript_include_tag "jquery.transform", "jquery.grab","jquery.jplayer","mod.csstransforms.min", "circle.player" %>
 
-</body>
+		
+	</head>
+	<body>
+	<div id="container">
+		<%= yield %>
+	</div>
+	</body>
 </html>

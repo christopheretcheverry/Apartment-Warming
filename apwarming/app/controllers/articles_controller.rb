@@ -44,6 +44,7 @@ class ArticlesController < ApplicationController
     #@article = Article.new(params[:article])
     @article = Article.create(params[:article])
     name = @article.id.to_s + '_' + file.original_filename
+    @article.filepath = 'https://s3.amazonaws.com/audioarticles/' + name
     @article.awskey = name
     AWS::S3::S3Object.store(name, file.read, BUCKET, :access => :public_read)
     
@@ -86,7 +87,7 @@ class ArticlesController < ApplicationController
     end
   end
   
-  def download_url_for(song_key)  
+  def download(song_key)  
       AWS::S3::S3Object.url_for(song_key, BUCKET, :authenticated => false)  
   end
   
