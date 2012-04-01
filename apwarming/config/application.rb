@@ -44,5 +44,11 @@ module Apwarming
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    
+    AWS::S3::Base.establish_connection!(  
+        :access_key_id     => 'AKIAIQE43FPS6HUK72AA',  
+        :secret_access_key => 'IoC/b8q3XdFsnw6BXJ62+W1M2X2J2foHAXxqOROS'  
+    )
+    
   end
 end
