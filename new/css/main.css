@@ -1,0 +1,32 @@
+html {
+	font-family: Tahoma, Lucida, Verdana, sans-serif;
+}
+h1{
+	font-size: 22px;
+	color: #575757;
+}
+
+#container {
+	width: 660px;
+	margin-right: auto;
+	margin-left: auto;
+	color: #9d9d9d;
+	font-size: 15px;
+}
+
+div.mp3 {
+	float: left;
+}
+
+.article {
+	display: block;
+	overflow: auto;
+	clear: both;
+	width: auto;
+	border-bottom: 1px solid #bebebe;
+	margin-bottom: 25px;
+}
+
+div.article-info {
+	margin-top: 50px;
+}
